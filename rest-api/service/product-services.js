@@ -45,3 +45,27 @@ exports.addProduct=function(req,res) {
 	});
 };
 
+exports.deleteProductbyId= function(req,res)
+{
+	var _id= req.params._id;
+	console.log("_id= "+_id);
+	//	ProfileSchema.findByIdAndRemove({_id},function(err){
+	//}
+	ProductSchema.findOneAndRemove({_id:_id}, function(err){
+	 if(err)
+	   {console.log(err)}
+
+	else{
+      var data={stauts:"success", message:"product successfully deleted"};
+      res.json(data);
+	}
+
+
+
+	});
+	
+  
+
+
+
+};
